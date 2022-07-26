@@ -1,7 +1,11 @@
 import 'package:first_challenge/components/constants.dart';
+import 'package:first_challenge/screen/sign_up.dart';
 import 'package:flutter/material.dart';
 
+import 'login.dart';
+
 class SignIn_SignUp extends StatelessWidget {
+  static String routeName = '/SigIn and SignUp';
   const SignIn_SignUp({Key? key}) : super(key: key);
 
   @override
@@ -28,7 +32,9 @@ class SignIn_SignUp extends StatelessWidget {
                         fontSize: 36, color: Colors.white),),
                     SizedBox(height: 188,),
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.pushNamed(context, LogInPage.routeName);
+                      },
                       child: Container(
                         height: 56, width: 358,
                         decoration: BoxDecoration(
@@ -42,7 +48,10 @@ class SignIn_SignUp extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 51,),
-                    TextButton(onPressed: (){}, child: Text('Sign Up', textAlign:
+                    TextButton(onPressed: (){
+                      Navigator.pushNamed(context, SignUpPage.routeName);
+                        },
+                      child: Text('Sign Up', textAlign:
                     TextAlign
                         .center, style: TextStyle
                       (fontFamily: 'Poppins', fontWeight: FontWeight.w500,

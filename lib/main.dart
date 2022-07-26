@@ -86,7 +86,7 @@ class MyApp extends StatelessWidget {
         // ),
         primarySwatch: Colors.blue,
       ),
-      // home: SignIn_SignUp(),
+      // home: sTack(),
       initialRoute: SplashScreen.routeName,
       routes: routes,
     );

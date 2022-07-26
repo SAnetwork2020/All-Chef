@@ -2,6 +2,7 @@ import 'package:first_challenge/components/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomizePreference extends StatefulWidget {
+  static String routeName = '/customize preference';
   const CustomizePreference({Key? key}) : super(key: key);
 
 

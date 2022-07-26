@@ -4,7 +4,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../components/constants.dart';
 
 class OnBoardingScreen extends StatefulWidget {
-  static String routeName = '/OnBoardingScreen';
+  // static String routeName = '/OnBoardingScreen';
   const OnBoardingScreen({Key? key}) : super(key: key);
 
   @override
@@ -20,28 +20,6 @@ final conta =  BoxDecoration(
 
   final controller = PageController();
   int index = 0;
-  final List<Model> model_slides = [
-    Model(
-      title:'Personalised \nRecipe Discovery',
-      desc: 'Tell us your preferences and we’ll only \nserve you delicious '
-          'recipe ideas',
-        // image: 'assets/images/unsplash_02.png'
-    ),
-
-    Model(
-      title:'Cooking Experience \nLike a Chef',
-      desc: 'Let’s make a delicious meal with the \nbest recipe for the '
-          'family',
-        // image: 'assets/images/unsplash_03.png'
-    ),
-
-    Model(
-      title:'Explore and Ignite \nYour Inner Chef',
-      desc: 'Discover more than 1200 recipes in your \nhand  and cook it '
-          'easily',
-        // image: 'assets/images/unsplash_04.png'
-    ),
-  ];
 
   @override
   void dispose() {
@@ -53,91 +31,112 @@ final conta =  BoxDecoration(
   Widget build(BuildContext context) {
     return SafeArea(
       child:
-      Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              colorFilter: ColorFilter.mode(Colors.black.withOpacity(.2),
-                  BlendMode.darken),
-              image: AssetImage('assets/images/unsplash_02.png'),
-            )
-        ),
-        child:
-        Scaffold(
-        backgroundColor: Colors.transparent,
-        body:  Column(
-          children: <Widget>[
-            Expanded(
-              flex: 4,
-                child: PageView.builder(
-                  itemCount: model_slides.length,
-                    itemBuilder: (context, index) => onboarding_contents(
-                        title: model_slides[index].title,
-                        desc: model_slides[index].desc,
-                    ),),),
-            Expanded(
-                flex: 2,
-                child: Column(mainAxisAlignment: MainAxisAlignment.end,
+      Scaffold(
+      backgroundColor: Colors.transparent,
+      body:  Column(
+        children: <Widget>[
+          Stack(
+            children:<Widget>[
+              PageView.builder(
+              itemCount: model_slides.length,
+                itemBuilder: (context, index) => onboarding_contents(
+                    // title: model_slides[index].title,
+                    // desc: model_slides[index].desc,
+                  image: model_slides[index].image,
+                ),),
+               Column(mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Center(
-                      child: SmoothPageIndicator(
-                        controller: controller,
-                        count: 3,
-                        effect: WormEffect(
-                          spacing: 16,
-                          dotColor: Color(0xffFF8F2B).withOpacity(.4),
-                          activeDotColor: kPrimaryColor,
-                        ),
+                  Center(
+                    child: SmoothPageIndicator(
+                      controller: controller,
+                      count: 3,
+                      effect: WormEffect(
+                        spacing: 16,
+                        dotColor: Color(0xffFF8F2B).withOpacity(.4),
+                        activeDotColor: kPrimaryColor,
                       ),
                     ),
-                    SizedBox(height: 32,),
-                    kPryBtn(text: 'Next'),
-                    SizedBox(height: 32,),
-                    TextButton(
-                        onPressed: (){
-                          controller.jumpToPage(2);
-                        },
-                        child: Text('Skip', textAlign: TextAlign.center,
-                          style: TextStyle(fontFamily: 'Poppins', fontSize:
-                          18, fontWeight: FontWeight.w500, color:
-                          kPrimaryColor),)),
-                    SizedBox(height: 65,),],
-                )),
-          ],
-        )),
-        ),
+                  ),
+                  SizedBox(height: 32,),
+                  kPryBtn(text: 'Next'),
+                  SizedBox(height: 32,),
+                  TextButton(
+                      onPressed: (){
+                        controller.jumpToPage(2);
+                      },
+                      child: Text('Skip', textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'Poppins', fontSize:
+                        18, fontWeight: FontWeight.w500, color:
+                        kPrimaryColor),)),
+                  SizedBox(height: 65,),],
+            ),
+          ]
+          ),
+        ],
+      )),
       );
     }
   }
 
 class Model {
-  final String title, desc;
-  Model({required this.title, required this.desc});
+  // final String title, desc;
+  final String image;
+  Model({required this.image});
 }
+
+final List<Model> model_slides = [
+  Model(
+    // title:'Personalised \nRecipe Discovery',
+    // desc: 'Tell us your preferences and we’ll only \nserve you delicious '
+    //     'recipe ideas',
+    image: 'assets/images/unsplash_02.png'
+  ),
+
+  Model(
+    // title:'Cooking Experience \nLike a Chef',
+    // desc: 'Let’s make a delicious meal with the \nbest recipe for the '
+    //     'family',
+    image: 'assets/images/unsplash_03.png'
+  ),
+
+  Model(
+    // title:'Explore and Ignite \nYour Inner Chef',
+    // desc: 'Discover more than 1200 recipes in your \nhand  and cook it '
+    //     'easily',
+    image: 'assets/images/unsplash_04.png'
+  ),
+];
+
+
+
+
+
+
 
 class onboarding_contents extends StatelessWidget {
   const onboarding_contents({
-    Key? key, required this.title, required this.desc,
+    Key? key, required this.image,
+    // required this.desc,
   }) : super(key: key);
-final String title, desc;
+// final String title, desc;
+final String image;
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-        Text(
-          title,
-          textAlign: TextAlign.center,
-          style: TextStyle(fontFamily: 'Poppins',
-              fontWeight: FontWeight.w700, fontSize: 28,
-              color: kPrimaryColor),),
-        Text(desc,
-          textAlign: TextAlign.center,
-          style: TextStyle(fontFamily: 'Poppins',
-            fontWeight: FontWeight.w400, fontSize: 13,
-            color: Color(0xffFEFEFE),),),]
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Image.asset(image),
+      Text(
+        'title',
+        textAlign: TextAlign.center,
+        style: TextStyle(fontFamily: 'Poppins',
+            fontWeight: FontWeight.w700, fontSize: 28,
+            color: kPrimaryColor),),
+      Text('desc',
+        textAlign: TextAlign.center,
+        style: TextStyle(fontFamily: 'Poppins',
+          fontWeight: FontWeight.w400, fontSize: 13,
+          color: Color(0xffFEFEFE),),),]
     );
   }
 }

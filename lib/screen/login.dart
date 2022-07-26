@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../components/constants.dart';
 
 class LogInPage extends StatefulWidget {
+  static String routeName = '/login page';
   const LogInPage({Key? key}) : super(key: key);
 
   @override

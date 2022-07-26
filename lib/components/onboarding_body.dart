@@ -3,7 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../screen/log_in_and_sign_up.dart';
+
 class sTack extends StatefulWidget {
+  static String routeName = '/stack';
+
   const sTack({Key? key}) : super(key: key);
 
   @override
@@ -12,164 +16,291 @@ class sTack extends StatefulWidget {
 
 class _sTackState extends State<sTack> {
   final controller = PageController();
+  bool isLastPage = false;
+
   @override
   void dispose() {
     controller.dispose();
     // TODO: implement dispose
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: Stack(
         children: [
-        PageView(
-          controller: controller,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage('assets/images/unsplash_02.png'),
-                fit: BoxFit.fill),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(height: 472,),
-                  Text('Personalised \nRecipe Discovery', textAlign: TextAlign
-                      .center, style:
-                  TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w700,fontFamily:
-                  'Popp'
-                      'ins'
-                    , fontSize:28,
-                  ),),
-                  Text('Tell us your preferences and we’ll only \nserve you '
-                      'delicious recipe ideas', textAlign: TextAlign
-                      .center, style:
-                  TextStyle(color:
-                  Colors.white, fontWeight: FontWeight.w400,fontFamily: 'Popp'
-                      'ins'
-                    , fontSize:13,
-                  ),),
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage
-                  ('assets/images/unsplash_03.png'),
-                fit: BoxFit.fill),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(height: 472,),
-                  Text('Cooking Experience\n Like a Chef', textAlign: TextAlign
-                      .center, style:
-                  TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w700,fontFamily:
-                  'Popp'
-                      'ins'
-                    , fontSize:28,
-                  ),),
-                  Text('Let’s make a delicious meal with the \nbest recipe for'
-                      ' the family', textAlign: TextAlign
-                      .center, style:
-                  TextStyle(color:
-                  Colors.white, fontWeight: FontWeight.w400,fontFamily: 'Popp'
-                      'ins'
-                    , fontSize:13,
-                  ),),
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage
-                  ('assets/images/unsplash_04.png'),
-                fit: BoxFit.fill),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(height: 472,),
-                  Text('Explore and Ignite \nYour Inner Chef', textAlign:
-                  TextAlign
-                      .center, style:
-                  TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w700,fontFamily:
-                  'Popp'
-                      'ins'
-                    , fontSize:28,
-                  ),),
-                  Text('Discover more than 1200 recipes in your\n hand  and '
-                      'cook it easily', textAlign: TextAlign
-                      .center, style:
-                  TextStyle(color:
-                  Colors.white, fontWeight: FontWeight.w400,fontFamily: 'Popp'
-                      'ins'
-                    , fontSize:13,
-                  ),),
-                ],
-              ),
-            ),
-          ],
-        ),
-          Column(mainAxisAlignment: MainAxisAlignment.end,
+          PageView(
+            onPageChanged: (index) {
+              setState(() => isLastPage = index == 2);
+            },
+            controller: controller,
             children: [
-              SizedBox(height: 64,),
-              Center(
+              Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/unsplash_02.png'),
+                      fit: BoxFit.fill),
+                ),
                 child: Column(
                   children: [
+                    SizedBox(
+                      height: 472,
+                    ),
+                    Text(
+                      'Personalised \nRecipe Discovery',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: kPrimaryColor,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Popp'
+                            'ins',
+                        fontSize: 28,
+                      ),
+                    ),
+                    Text(
+                      'Tell us your preferences and we’ll only \nserve you '
+                      'delicious recipe ideas',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Popp'
+                            'ins',
+                        fontSize: 13,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/unsplash_03.png'),
+                      fit: BoxFit.fill),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 472,
+                    ),
+                    Text(
+                      'Cooking Experience\n Like a Chef',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: kPrimaryColor,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Poppins',
+                        fontSize: 28,
+                      ),
+                    ),
+                    Text(
+                      'Let’s make a delicious meal with the \nbest recipe for'
+                      ' the family',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Popp'
+                            'ins',
+                        fontSize: 13,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/unsplash_04.png'),
+                      fit: BoxFit.fill),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 472,
+                    ),
+                    Text(
+                      'Explore and Ignite \nYour Inner Chef',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: kPrimaryColor,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Popp'
+                            'ins',
+                        fontSize: 28,
+                      ),
+                    ),
+                    Text(
+                      'Discover more than 1200 recipes in your\n hand  and '
+                      'cook it easily',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Popp'
+                            'ins',
+                        fontSize: 13,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Center(
+                child: isLastPage? Column(
+                  children: [
+                    SizedBox(
+                      height: 64,
+                    ),
                     SmoothPageIndicator(
-                        controller: controller, count: 3,
+                      controller: controller,
+                      count: 3,
                       effect: WormEffect(
                         spacing: 16,
                         dotColor: kPrimaryColor.withOpacity(.4),
                         activeDotColor: kPrimaryColor,
                       ),
-                      onDotClicked: (index){
-                          controller.animateToPage(index, duration: Duration(milliseconds: 500), curve: Curves.easeIn);
+                      onDotClicked: (index) {
+                        controller.animateToPage(index,
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.easeIn);
                       },
                     ),
-                    SizedBox(height: 64,),
+                    SizedBox(
+                      height: 64,
+                    ),
                     InkWell(
-                      onTap: (){
-                        controller.nextPage(duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
+                      onTap: () {
+                        // controller.nextPage(
+                        //     duration: Duration(milliseconds: 500),
+                        //     curve: Curves.easeInOut);
+                        Navigator.pushReplacement(context, MaterialPageRoute
+                        (builder: (context)=>SignIn_SignUp()));
                       },
                       child: Container(
-                        height: 60,width: 358,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
+                          height: 60,
+                          width: 358,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: kPrimaryColor,
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Get Started',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Poppins',
+                                fontSize: 18,
+                              ),
+                            ),
+                          )),
+                    ),
+                    // SizedBox(
+                    //   height: 83,
+                    // ),
+                    // TextButton(
+                    //   onPressed: () {
+                    //     controller.jumpToPage(2);
+                    //   },
+                    //   child: Text(
+                    //     'Skip',
+                    //     textAlign: TextAlign.center,
+                    //     style: TextStyle(
+                    //       color: kPrimaryColor,
+                    //       fontWeight: FontWeight.w500,
+                    //       fontFamily: 'Poppins',
+                    //       fontSize: 18,
+                    //     ),
+                    //   ),
+                    // ),
+                    SizedBox(
+                      height: 83,
+                    ),
+                  ],
+                ) : Column(
+                  children: [
+                    SizedBox(
+                      height: 64,
+                    ),
+                    SmoothPageIndicator(
+                      controller: controller,
+                      count: 3,
+                      effect: WormEffect(
+                        spacing: 16,
+                        dotColor: kPrimaryColor.withOpacity(.4),
+                        activeDotColor: kPrimaryColor,
+                      ),
+                      onDotClicked: (index) {
+                        controller.animateToPage(index,
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.easeIn);
+                      },
+                    ),
+                    SizedBox(
+                      height: 32,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        controller.nextPage(
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.easeInOut);
+                      },
+                      child: Container(
+                          height: 60,
+                          width: 358,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: kPrimaryColor,
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Next',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Poppins',
+                                fontSize: 18,
+                              ),
+                            ),
+                          )),
+                    ),
+                    SizedBox(
+                      height: 32,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        controller.jumpToPage(2);
+                      },
+                      child: Text(
+                        'Skip',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
                           color: kPrimaryColor,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Poppins',
+                          fontSize: 18,
                         ),
-                        child: Center(
-                            child:
-                            Text('Next', textAlign: TextAlign.center, style:
-                        TextStyle(color:
-                        Colors.white, fontWeight: FontWeight.w500,fontFamily: 'Poppins'
-                            , fontSize:18,
-                        ),),
-                        )
                       ),
                     ),
-                    SizedBox(height: 32,),
-                    TextButton(onPressed: (){
-                      controller.jumpToPage(2);
-                    },
-                      child: Text('Skip', textAlign: TextAlign.center, style:
-                    TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins'
-                      , fontSize:18,
-                    ),),),
-                    SizedBox(height: 68,),
+                    SizedBox(
+                      height: 68,
+                    ),
                   ],
                 ),
               ),
             ],
           )
-      ],),
+        ],
+      ),
     );
-
-
-
-
-
-
 
     // Container(
     //     alignment: Alignment.center,

@@ -1,6 +1,8 @@
 import 'package:first_challenge/screen/onboarding_screen.dart';
 import'package:flutter/material.dart';
 
+import '../components/onboarding_body.dart';
+
 class SplashScreen extends StatefulWidget {
   static String routeName = '/SplashScreen';
   const SplashScreen({Key? key}) : super(key: key);
@@ -18,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 _gohome()async{
     await Future.delayed(Duration(milliseconds: 3500), (){});
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>OnBoardingScreen()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>sTack()));
 }
 
   @override
@@ -36,7 +38,8 @@ _gohome()async{
                   // crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Image.asset('assets/images/white_logo.png'),
+                    Image.asset('assets/images/white_logo.png',height:96.52 ,
+                      width: 85,),
                     Text(
                         'All Chef',
                       textAlign: TextAlign.center,

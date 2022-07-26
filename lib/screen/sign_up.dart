@@ -4,6 +4,7 @@ import '../components/constants.dart';
 import 'onboarding_screen.dart';
 
 class SignUpPage extends StatefulWidget {
+  static String routeName = '/sign up';
   const SignUpPage({Key? key}) : super(key: key);
 
   @override

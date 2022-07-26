@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class VerifyAccount extends StatefulWidget {
+  static String routeName = 'verify account';
   const VerifyAccount({Key? key}) : super(key: key);
 
   @override
