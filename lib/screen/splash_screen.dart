@@ -1,4 +1,3 @@
-import 'package:first_challenge/screen/onboarding_screen.dart';
 import'package:flutter/material.dart';
 
 import '../components/onboarding_body.dart';
@@ -19,8 +18,8 @@ class _SplashScreenState extends State<SplashScreen> {
     _gohome();
   }
 _gohome()async{
-    await Future.delayed(Duration(milliseconds: 3500), (){});
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>sTack()));
+    await Future.delayed(const Duration(milliseconds: 3500), (){});
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const sTack()));
 }
 
   @override
@@ -40,7 +39,7 @@ _gohome()async{
                   children: <Widget>[
                     Image.asset('assets/images/white_logo.png',height:96.52 ,
                       width: 85,),
-                    Text(
+                    const Text(
                         'All Chef',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontFamily: 'Poppins',
@@ -48,7 +47,7 @@ _gohome()async{
                           fontWeight: FontWeight.w700,
                       color: Colors.white),
                     ),
-                    Text(
+                    const Text(
                         'Ignite Your Inner Chef',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontStyle: FontStyle.italic,

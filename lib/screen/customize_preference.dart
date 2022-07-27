@@ -1,4 +1,3 @@
-import 'package:first_challenge/components/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomizePreference extends StatefulWidget {
@@ -11,7 +10,7 @@ class CustomizePreference extends StatefulWidget {
 }
 
 class _CustomizePreferenceState extends State<CustomizePreference> {
-  final kTextCustomization = TextStyle(
+  final kTextCustomization = const TextStyle(
       fontFamily: 'Poppins', fontSize: 14, fontWeight:
   FontWeight
       .w400, color:Color(0xff6D6D6D));
@@ -19,11 +18,11 @@ class _CustomizePreferenceState extends State<CustomizePreference> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
-      body: Padding(padding: EdgeInsets.all(16), child:
+      body: Padding(padding: const EdgeInsets.all(16), child:
         Column(
           children: <Widget>[
             Row(mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
+              children: const <Widget>[
                 Text(
                   'Skip',
                   textAlign: TextAlign.center,
@@ -35,12 +34,12 @@ class _CustomizePreferenceState extends State<CustomizePreference> {
               child: Column(
                 children: [
                   Image.asset('assets/images/chef_pix.png'),
-                  SizedBox(height: 32),
+                  const SizedBox(height: 32),
                   Text(
                     'Customize Preference',
                     textAlign: TextAlign.center,
                     style: kTextCustomization.copyWith( fontSize: 24, 
-                        fontWeight: FontWeight.w700, color: Color(0xff121212)),
+                        fontWeight: FontWeight.w700, color: const Color(0xff121212)),
                    
                   ),
                   Text(
@@ -48,12 +47,12 @@ class _CustomizePreferenceState extends State<CustomizePreference> {
                         'build your personalized preference', textAlign:
                   TextAlign.center, style: kTextCustomization,
                    ),
-                  SizedBox(height: 28),
+                  const SizedBox(height: 28),
                   Row(
                     children: <Widget>[
                       TextButton(
                           onPressed: (){},
-                          child: Text(
+                          child: const Text(
                             'Sugar free',
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -62,7 +61,7 @@ class _CustomizePreferenceState extends State<CustomizePreference> {
                                 .w400, color:Colors.black),),),
                       TextButton(
                           onPressed: (){},
-                          child: Text(
+                          child: const Text(
                             'Sugar free',
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -70,10 +69,10 @@ class _CustomizePreferenceState extends State<CustomizePreference> {
                             FontWeight
                                 .w400, color:Colors.black),),),
                       TextButton(
-                        style: ButtonStyle(
+                        style: const ButtonStyle(
                         ),
                         onPressed: (){},
-                        child: Text(
+                        child: const Text(
                           'Sugar free',
                           textAlign: TextAlign.center,
                           style: TextStyle(

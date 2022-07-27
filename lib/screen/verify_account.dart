@@ -1,5 +1,4 @@
-import 'package:first_challenge/components/constants.dart';
-import 'package:first_challenge/screen/onboarding_screen.dart';
+import 'package:first_challenge/components/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,7 +15,7 @@ class _VerifyAccountState extends State<VerifyAccount> {
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Verify Your Account',
           textAlign: TextAlign.center,
           style: TextStyle(
@@ -30,7 +29,7 @@ class _VerifyAccountState extends State<VerifyAccount> {
         padding: const EdgeInsets.all(18.0),
         child: Column(
           children: [
-            SizedBox(height: 16,),
+            const SizedBox(height: 16,),
             Center(
               child:
               Column(
@@ -46,8 +45,8 @@ class _VerifyAccountState extends State<VerifyAccount> {
                         child: Image.asset('assets/images/verify.png',
                         width: 54, height: 46,),
                       )),
-                  SizedBox(height: 24,),
-                  Text(
+                  const SizedBox(height: 24,),
+                  const Text(
                     'A 6-digit verification code has been sent to '
                         '\n+234678708708xxx and ynwa@hotmail.com',
                     textAlign: TextAlign.center,
@@ -55,7 +54,7 @@ class _VerifyAccountState extends State<VerifyAccount> {
                         fontFamily: 'Poppins', fontSize: 13, fontWeight:
                     FontWeight
                         .w400, color: Color(0xff121212)),),
-                  SizedBox(height: 21,),
+                  const SizedBox(height: 21,),
                   Form(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -148,7 +147,7 @@ class _VerifyAccountState extends State<VerifyAccount> {
 
                     ),
                   ),
-                  SizedBox(height: 24,),
+                  const SizedBox(height: 24,),
                   Container(
                     height: 50, width: 358,
                     decoration: BoxDecoration(

@@ -1,4 +1,4 @@
-import 'package:first_challenge/components/constants.dart';
+import 'package:first_challenge/components/color_constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

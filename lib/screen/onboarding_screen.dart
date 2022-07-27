@@ -1,7 +1,7 @@
 import'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../components/constants.dart';
+import '../components/color_constants.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   // static String routeName = '/OnBoardingScreen';
@@ -52,23 +52,23 @@ final conta =  BoxDecoration(
                       count: 3,
                       effect: WormEffect(
                         spacing: 16,
-                        dotColor: Color(0xffFF8F2B).withOpacity(.4),
+                        dotColor: const Color(0xffFF8F2B).withOpacity(.4),
                         activeDotColor: kPrimaryColor,
                       ),
                     ),
                   ),
-                  SizedBox(height: 32,),
-                  kPryBtn(text: 'Next'),
-                  SizedBox(height: 32,),
+                  const SizedBox(height: 32,),
+                  const kPryBtn(text: 'Next'),
+                  const SizedBox(height: 32,),
                   TextButton(
                       onPressed: (){
                         controller.jumpToPage(2);
                       },
-                      child: Text('Skip', textAlign: TextAlign.center,
+                      child: const Text('Skip', textAlign: TextAlign.center,
                         style: TextStyle(fontFamily: 'Poppins', fontSize:
                         18, fontWeight: FontWeight.w500, color:
                         kPrimaryColor),)),
-                  SizedBox(height: 65,),],
+                  const SizedBox(height: 65,),],
             ),
           ]
           ),
@@ -126,13 +126,13 @@ final String image;
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Image.asset(image),
-      Text(
+      const Text(
         'title',
         textAlign: TextAlign.center,
         style: TextStyle(fontFamily: 'Poppins',
             fontWeight: FontWeight.w700, fontSize: 28,
             color: kPrimaryColor),),
-      Text('desc',
+      const Text('desc',
         textAlign: TextAlign.center,
         style: TextStyle(fontFamily: 'Poppins',
           fontWeight: FontWeight.w400, fontSize: 13,
@@ -158,7 +158,7 @@ final String text;
         child: Center(
           child: Text(text,
             textAlign: TextAlign.center,
-            style: TextStyle(fontFamily: 'Poppins',
+            style: const TextStyle(fontFamily: 'Poppins',
               fontWeight: FontWeight.w500, fontSize: 18,
               color: Colors.white,),),
         ),
@@ -166,130 +166,6 @@ final String text;
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Container(
-// child: Stack(
-// fit: StackFit.expand,
-// children: [
-// Image.asset('assets/images/unsplash_02.png',
-// fit: BoxFit.cover,
-// color: Color(0xff1AFF8F2B),
-// colorBlendMode: BlendMode.colorBurn,),
-
-// ],
-//
-// ),
-// ),
-// Container(
-// child: Stack(
-// fit: StackFit.expand,
-// children: [
-// Image.asset('assets/images/unsplash_03.png',
-// fit: BoxFit.cover,),
-//
-// ],
-//
-// ),
-// ),
-// Container(
-// child: Stack(
-// fit: StackFit.expand,
-// children: [
-// Image.asset('assets/images/unsplash_04.png',
-// fit: BoxFit.cover,
-// ),
-//
-// Text('Explore and Ignite \nYour Inner Chef',
-// textAlign: TextAlign.center,
-// style: TextStyle(fontFamily: 'Poppins',
-// fontWeight: FontWeight.w400, fontSize: 13,
-// color: Color(0xffFEFEFE)) ,),
-//
-// Text('Discover more than 1200 recipes in your \nhand  and '
-// 'cook it easily',
-// textAlign: TextAlign.center,
-// style: TextStyle(fontFamily: 'Poppins',
-// fontWeight: FontWeight.w700, fontSize: 28,
-// color: kPrimaryColor),)
-// ],
-//
-// ),
-// ),
-
-
-
-//
-// PageView(
-// controller: controller,
-// children: <Container>[
-// Container(
-// child: Column(
-// mainAxisAlignment: MainAxisAlignment.end,
-// children: [
-// SizedBox(height: 115,),
-// Center(
-// child: SmoothPageIndicator(
-// controller: controller,
-// count: 3,
-// ),
-// ),
-// kPryBtn(text: 'Next',),
-// SizedBox(height: 115,),
-// ],
-// )
-// ),
-// Container(
-// child: Column(
-// mainAxisAlignment: MainAxisAlignment.end,
-// children: [
-// Text('Cooking Experience \nLike a Chef',
-// textAlign: TextAlign.center,
-// style: TextStyle(fontFamily: 'Poppins',
-// fontWeight: FontWeight.w700, fontSize: 28,
-// color: kPrimaryColor),),
-// Text('Let’s make a delicious meal with the \nbest recipe for the '
-// 'family',
-// textAlign: TextAlign.center,
-// style: TextStyle(fontFamily: 'Poppins',
-// fontWeight: FontWeight.w400, fontSize: 13,
-// color: Color(0xffFEFEFE),),),
-// SizedBox(height: 115,),],
-// )
-// ),
-// Container(
-// child: Column(
-// mainAxisAlignment: MainAxisAlignment.end,
-// children: [
-// Text('Explore and Ignite \nYour Inner Chef',
-// textAlign: TextAlign.center,
-// style: TextStyle(fontFamily: 'Poppins',
-// fontWeight: FontWeight.w700, fontSize: 28,
-// color: kPrimaryColor),),
-// Text('Discover more than 1200 recipes in your \nhand  and cook it '
-// 'easily',
-// textAlign: TextAlign.center,
-// style: TextStyle(fontFamily: 'Poppins',
-// fontWeight: FontWeight.w400, fontSize: 13,
-// color: Color(0xffFEFEFE),),),
-// SizedBox(height: 115,),],),
-// ),
-// ],
-//
-// )
-
-
 
 
 
