@@ -57,92 +57,22 @@ class _VerifyAccountState extends State<VerifyAccount> {
                   const SizedBox(height: 21,),
                   Form(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        SizedBox(height:50,width:50,
-                          child:
-                          TextFormField(
-                            onChanged: (value){
-                              if (value.length == 1){
-                                FocusScope.of(context).nextFocus();
-                              }
-                            },
-                            textAlign: TextAlign.center,
-                            inputFormatters: [
-                              LengthLimitingTextInputFormatter
-                              (1), FilteringTextInputFormatter.digitsOnly],
-                            keyboardType: TextInputType.number,
-                          ),),
-                        SizedBox(height:50,width:50,
-                          child:
-                          TextFormField(
-                            onChanged: (value){
-                              if (value.length == 1){
-                                FocusScope.of(context).nextFocus();
-                              }
-                            },
-                            textAlign: TextAlign.center,
-                            inputFormatters: [
-                              LengthLimitingTextInputFormatter
-                              (1), FilteringTextInputFormatter.digitsOnly],
-                            keyboardType: TextInputType.number,
-                          ),),
-                        SizedBox(height:50,width:50,
-                          child:
-                          TextFormField(
-                            onChanged: (value){
-                              if (value.length == 1){
-                                FocusScope.of(context).nextFocus();
-                              }
-                            },
-                            textAlign: TextAlign.center,
-                            inputFormatters: [
-                              LengthLimitingTextInputFormatter
-                              (1), FilteringTextInputFormatter.digitsOnly],
-                            keyboardType: TextInputType.number,
-                          ),),
-                        SizedBox(height:50,width:50,
-                          child:
-                          TextFormField(
-                            onChanged: (value){
-                              if (value.length == 1){
-                                FocusScope.of(context).nextFocus();
-                              }
-                            },
-                            textAlign: TextAlign.center,
-                            inputFormatters: [
-                              LengthLimitingTextInputFormatter
-                              (1), FilteringTextInputFormatter.digitsOnly],
-                            keyboardType: TextInputType.number,
-                          ),),
-                        SizedBox(height:50,width:50,
-                          child:
-                          TextFormField(
-                            onChanged: (value){
-                              if (value.length == 1){
-                                FocusScope.of(context).nextFocus();
-                              }
-                            },
-                            textAlign: TextAlign.center,
-                            inputFormatters: [
-                              LengthLimitingTextInputFormatter
-                              (1), FilteringTextInputFormatter.digitsOnly],
-                            keyboardType: TextInputType.number,
-                          ),),
-                        SizedBox(height:50,width:50,
-                          child:
-                          TextFormField(
-                            onChanged: (value){
-                              if (value.length == 1){
-                                FocusScope.of(context).nextFocus();
-                              }
-                            },
-                            textAlign: TextAlign.center,
-                            inputFormatters: [
-                              LengthLimitingTextInputFormatter
-                              (1), FilteringTextInputFormatter.digitsOnly],
-                            keyboardType: TextInputType.number,
-                          ),),
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children:  <Widget>[
+                      SizedBox(height: 54, width: 50,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            fillColor: Color(0xffF0F0F0), filled: true,
+                          ),
+                          keyboardType: TextInputType.number,
+                          textAlign: TextAlign.center,
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(1),
+                            FilteringTextInputFormatter.digitsOnly,
+                          ],
+
+                        ),
+                      ),
                       ],
 
                     ),

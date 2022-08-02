@@ -1,4 +1,5 @@
 import 'package:first_challenge/components/color_constants.dart';
+import 'package:first_challenge/components/customSuffixSvgIcon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -36,7 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
           child: _pages[_selectedIndex],
               ),
         bottomNavigationBar: buildBottomNavigationBar(),
-      ));
+      drawer: NavigationDrawer(),),
+    );
     }
 
 
@@ -77,4 +79,117 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   }
 
+  class NavigationDrawer extends StatelessWidget {
+    const NavigationDrawer({Key? key}) : super(key: key);
 
+    @override
+    Widget build(BuildContext context) {
+      return Drawer(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              buildHeader(context),
+              buildMenuItems(context),
+            ],
+          ),
+        ),
+      );
+    }
+
+    buildHeader(BuildContext context) =>Container(
+        // padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top,
+        // color: Colors.greenAccent,
+      child: Padding(
+        padding: const EdgeInsets.only(top:72, left:40.0),
+        child: Row(
+          children: [
+            Container(
+                height: 45,width: 45,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  image: DecorationImage(image: AssetImage('assets/images/profile_pix.png'))
+                ),
+              ),
+            SizedBox(width: 16,),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:[
+              Text('Miracle Oshadare', style: Theme.of(context).textTheme
+                  .subtitle1?.merge(const TextStyle(fontSize: 13, fontWeight:
+              FontWeight.w500, color: black_10)),),
+              Text('@miracool_', style: Theme.of(context).textTheme
+                  .subtitle1?.merge(const TextStyle(fontSize: 13, color: black_05)
+              ),),
+            ],
+        ),
+        ]),
+      ),
+    );
+
+    buildMenuItems(BuildContext context) =>
+        Container(padding: EdgeInsets.all(16),
+          child: Wrap(
+            runSpacing: 10,
+            children:  [
+              ListTile(
+                leading: const customSufixSvg(SvgIcon: 'assets/icons/svg_articles.svg'),
+                title: Text('Articles', style: Theme.of(context).textTheme
+                    .subtitle1?.merge(const TextStyle(fontSize: 18)),),
+                trailing: const customSufixSvg(SvgIcon: 'assets/icons/svg_forward.svg'),
+                onTap: (){},
+              ),
+              ListTile(
+                leading: const customSufixSvg(SvgIcon: 'assets/icons/svg_newsle'
+                    'tter.svg'),
+                title: Text('Newsletter', style: Theme.of(context).textTheme
+                    .subtitle1?.merge(const TextStyle(fontSize: 18)),),
+                trailing: const customSufixSvg(SvgIcon: 'assets/icons/svg_forward.svg'),
+                onTap: (){},
+              ),
+              ListTile(
+                leading: const customSufixSvg(SvgIcon: 'assets/icons/svg_chats.svg'),
+                title: Text('Chats', style: Theme.of(context).textTheme
+                    .subtitle1?.merge(const TextStyle(fontSize: 18)),),
+                trailing: const customSufixSvg(SvgIcon: 'assets/icons/svg_forward.svg'),
+                onTap: (){},
+              ),
+              ListTile(
+                leading: const customSufixSvg(SvgIcon: 'assets/icons/svg_faq.svg'),
+                title: Text('FAQ', style: Theme.of(context).textTheme
+                    .subtitle1?.merge(const TextStyle(fontSize: 18)),),
+                trailing: const customSufixSvg(SvgIcon: 'assets/icons/svg_forward.svg'),
+                onTap: (){},
+              ),
+              ListTile(
+                leading: const customSufixSvg(SvgIcon: 'assets/icons/svg_help.svg'),
+                title: Text('Help', style: Theme.of(context).textTheme
+                    .subtitle1?.merge(const TextStyle(fontSize: 18)),),
+                trailing: const customSufixSvg(SvgIcon: 'assets/icons/svg_forward.svg'),
+                onTap: (){},
+              ),
+              SizedBox(height: 350),
+              Container(
+                width: 249,height: 60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(31),
+                  color: kPrimaryColor
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Sign Out', style: Theme.of(context).textTheme
+                        .subtitle1?.merge(const TextStyle(fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: white_grey_01)
+                    ),),
+                    SizedBox(width: 108,),
+                    customSufixSvg(SvgIcon: 'assets/icons/svg_uil_sign-out-alt.svg')
+                  ],
+                ),
+              ),
+
+            ],
+          ),
+        );
+  }

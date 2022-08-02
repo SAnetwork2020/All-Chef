@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../components/color_constants.dart';
+import '../../components/customSuffixSvgIcon.dart';
 
 class Home_Page extends StatefulWidget {
   const Home_Page({
@@ -17,39 +18,41 @@ class Home_Page extends StatefulWidget {
 }
 
 class _Home_PageState extends State<Home_Page> {
-  void isSelected(int index){
-    setState((){
-      _selectedCategories = !_selectedCategories;
-    });
-  }
-  bool _selectedCategories = false;
+  int _selectedCategories = 0;
+  // void isSelected(int index){
+  //   setState((){
+  //     _selectedCategories = !_selectedCategories;
+  //   });
+  // }
+  // bool _selectedCategories = false;
+
   final List<CardItem> items = [
     const CardItem(
         image: 'assets/images/food_1.png',
         content: 'Pasta with \nshrimp sauce',
         time:'30 Mins | 2 Serving'),
-    const CardItem(image: 'assets/images/food_2.png',
+    const CardItem(image: 'assets/images/food_3.png',
         content: 'Basmati rice \nwith egg sauce',
         time:'45 Mins | 2 Serving'),
     const CardItem(
         image: 'assets/images/food_1.png',
         content: 'Pasta with \nshrimp sauce',
         time:'30 Mins | 2 Serving'),
-    const CardItem(image: 'assets/images/food_2.png',
+    const CardItem(image: 'assets/images/food_4.png',
         content: 'Basmati rice \nwith egg sauce',
         time:'45 Mins | 2 Serving'),
     const CardItem(
         image: 'assets/images/food_1.png',
         content: 'Pasta with \nshrimp sauce',
         time:'30 Mins | 2 Serving'),
-    const CardItem(image: 'assets/images/food_2.png',
+    const CardItem(image: 'assets/images/food_4.png',
         content: 'Basmati rice \nwith egg sauce',
         time:'45 Mins | 2 Serving'),
     const CardItem(
         image: 'assets/images/food_1.png',
         content: 'Pasta with \nshrimp sauce',
         time:'30 Mins | 2 Serving'),
-    const CardItem(image: 'assets/images/food_2.png',
+    const CardItem(image: 'assets/images/food_3.png',
         content: 'Basmati rice \nwith egg sauce',
         time:'45 Mins | 2 Serving'),
   ];
@@ -64,8 +67,14 @@ class _Home_PageState extends State<Home_Page> {
           children: <Widget>[
             Row(
               children: [
-                Image.asset('assets/images/menu.png', height: 14, width: 20,),
-                const SizedBox(width: 14,),
+                Builder(builder: (BuildContext context){
+                  return IconButton(
+                      padding: EdgeInsets.all(0),
+                      // splashRadius: 2,
+                      onPressed: (){Scaffold.of(context).openDrawer();},
+                      icon:const customSufixSvg(SvgIcon:'assets/icons/svg_menu_icon.svg'));
+                },),
+                // const SizedBox(width: 14,),
                 const Text('Good morning', textAlign: TextAlign.center, style: TextStyle(
                     fontWeight: FontWeight.w500, fontSize: 16, fontFamily: 'Poppins',
                     color: kPrimaryColor
@@ -73,12 +82,13 @@ class _Home_PageState extends State<Home_Page> {
 
               ],
             ),
-            Image.asset('assets/images/carbon_notification.png',height: 21.75,
-              width: 19.5,)
+            (customSufixSvg(SvgIcon: 'assets/icons/svg_notification.svg'))
+            // Image.asset('assets/images/carbon_notification.png',height: 21.75,
+            //   width: 19.5,)
           ],
         ),
         const Padding(
-          padding: EdgeInsets.only(left: 34.0, bottom: 29),
+          padding: EdgeInsets.only(left: 48.0, bottom: 29),
           child: Text('Miracle', textAlign: TextAlign.center, style: TextStyle
             (fontWeight: FontWeight.w700,fontSize: 24, color:
           black_10),),
@@ -173,12 +183,15 @@ class _Home_PageState extends State<Home_Page> {
               itemCount: Home_Page._categories.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index)=>InkWell(
-                onTap: ()=>isSelected,
+                onTap: ()=>setState(() {
+                  _selectedCategories = index;
+                }),
                 child: Container(
                     height: 24,
                     margin: const EdgeInsets.only(right: 8),
                     decoration: BoxDecoration(
-                      color: _selectedCategories? secondary_100:const Color(0xffFAFAFA),
+                      color: _selectedCategories == index? secondary_100:const
+                        Color(0xffFAFAFA),
                       borderRadius: BorderRadius.circular(4),
                       boxShadow: [BoxShadow(
                         color: const Color(0xff000000).withOpacity(.12),

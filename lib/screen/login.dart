@@ -72,6 +72,7 @@ class _LogInPageState extends State<LogInPage> {
                           .w500, color: Color(0xff121212)),),
                     const SizedBox(height: 8,),
                     TextFormField(
+                      style: TextStyle(fontSize: 16,),
                       decoration: InputDecoration(
                           filled: true,
                         fillColor: const Color(0xffF0F0F0),
@@ -97,6 +98,7 @@ class _LogInPageState extends State<LogInPage> {
                           .w500, color: Color(0xff121212)),),
                     const SizedBox(height: 8,),
                     TextFormField(
+                      style: TextStyle(fontSize: 16,),
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0xffF0F0F0),
@@ -107,7 +109,14 @@ class _LogInPageState extends State<LogInPage> {
                         hintText: 'Enter your password', hintStyle: const TextStyle
                         (fontFamily: 'Poppins', fontWeight: FontWeight.w500,
                           fontSize: 16, color: Color(0xffAAAAAA),),
-                        suffixIcon: const customSufixSvg(SvgIcon: 'assets/icons/svg_eye.svg'),
+                        suffixIcon: InkWell(child: const customSufixSvg(SvgIcon: 'a'
+                            'ssets/icons/svg_eye.svg')),
+                        // IconButton(onPressed: (){},
+                        //   splashRadius: 8,
+                        //   iconSize: 20,
+                        //   padding: EdgeInsets.all(0),
+                        //   icon: const
+                        // customSufixSvg(SvgIcon: 'assets/icons/svg_eye.svg'),),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8)
                         )
