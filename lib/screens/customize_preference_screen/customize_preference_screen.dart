@@ -89,7 +89,7 @@ class CustomizePreferenceScreen extends StatelessWidget {
                   height: 50,
                   text: "Build preference",
                   onTap: () {
-                    context.router.push(const HomeRoute());
+                    context.pushRoute(const NavBaseRoute());
                   },
                 ),
               ),

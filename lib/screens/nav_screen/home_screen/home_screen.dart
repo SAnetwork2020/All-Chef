@@ -1,8 +1,10 @@
 import 'package:all_chef/colors.dart';
+import 'package:all_chef/extension.dart';
 import 'package:all_chef/gen/assets.gen.dart';
 import 'package:auto_route/annotations.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 @RoutePage()
@@ -69,181 +71,193 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Row(
-              children: [
-                Builder(
-                  builder: (BuildContext context) {
-                    return IconButton(
-                      padding: EdgeInsets.all(0),
-                      // splashRadius: 2,
-                      onPressed: () {
-                        Scaffold.of(context).openDrawer();
-                      },
-                      icon: Assets.icons.svgMenuIcon.svg(),
-                    );
-                  },
-                ),
-                // const SizedBox(width: 14,),
-                const Text(
-                  'Good morning',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16,
-                    fontFamily: 'Poppins',
-                    color: kPrimaryColor,
+            48.75.toColumnSizedBox(),
+            Padding(
+              padding: EdgeInsets.only(left: 18.0.w, right: 18.25.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Assets.icons.svgMenuIcon.svg(),
+                      14.toRowSizedBox(),
+                      const Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Good morning',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                              fontFamily: 'Poppins',
+                              color: kPrimaryColor,
+                            ),
+                          ),
+                          Text(
+                            'Miracle',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 24,
+                                color: black_10),
+                          ),
+                        ],
+                      ),
+                      // const SizedBox(width: 14,),
+                    ],
                   ),
-                ),
-              ],
+                  Assets.icons.svgNotification.svg(),
+                ],
+              ),
             ),
-            Assets.icons.svgNotification.svg()
-            // Image.asset('assets/images/carbon_notification.png',height: 21.75,
-            //   width: 19.5,)
+            29.toColumnSizedBox(),
+            Padding(
+              padding: EdgeInsets.only(left: 16.w),
+              child: const Text(
+                'What would you like to cook?',
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 12,
+                  fontFamily: 'Poppins',
+                  color: black_10,
+                ),
+              ),
+            ),
+            8.toColumnSizedBox(),
+            Padding(
+              padding: EdgeInsets.only(left: 16.w, right: 16),
+              child: SizedBox(
+                height: 50.h,
+                child: TextField(
+                  decoration: InputDecoration(
+                      filled: true,
+                      fillColor: const Color(0xfff0f0f0),
+                      hintText: 'Fried yam and sauce',
+                      suffixIcon: const Icon(Icons.search_sharp),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(color: black_02),
+                      )),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 14,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 16.w),
+              child: const Text('Feeds',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      fontFamily: 'Poppins',
+                      color: black_10)),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 16.w),
+              child: Text(
+                'Categories',
+                style: TextStyle(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+            8.toColumnSizedBox(),
+            categories_items(),
+            Text(
+              'Popular Recipes',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1
+                  ?.merge(const TextStyle(color: black_10)),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 237,
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: items.length,
+                        separatorBuilder: (context, _) => const SizedBox(
+                          width: 20,
+                        ),
+                        itemBuilder: (context, index) => Container(
+                          height: 237,
+                          width: 190,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(items[index].image)),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: buildCard(
+                            content: items[index].content,
+                            image: items[index].image,
+                            time: items[index].time,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    SizedBox(
+                      height: 237,
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: items.length,
+                        separatorBuilder: (context, _) => const SizedBox(
+                          width: 20,
+                        ),
+                        itemBuilder: (context, index) => Container(
+                          height: 237,
+                          width: 190,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(items[index].image)),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: buildCard(
+                            content: items[index].content,
+                            image: items[index].image,
+                            time: items[index].time,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
-        const Padding(
-          padding: EdgeInsets.only(left: 48.0, bottom: 29),
-          child: Text(
-            'Miracle',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontWeight: FontWeight.w700, fontSize: 24, color: black_10),
-          ),
-        ),
-        const Text('What would you like to cook?',
-            style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 12,
-              fontFamily: 'Poppins',
-              color: black_10,
-            )),
-        const SizedBox(
-          height: 8,
-        ),
-        TextField(
-          decoration: InputDecoration(
-              filled: true,
-              fillColor: const Color(0xfff0f0f0),
-              hintText: 'Fried yam and sauce',
-              suffixIcon: const Icon(Icons.search_sharp),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(color: black_02),
-              )),
-        ),
-        const SizedBox(
-          height: 14,
-        ),
-        const Text('Feeds',
-            style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 12,
-                fontFamily: 'Poppins',
-                color: black_10)),
-        const SizedBox(
-          height: 8,
-        ),
-        const SizedBox(
-          height: 16,
-        ),
-        Text(
-          'Categories',
-          style: Theme.of(context)
-              .textTheme
-              .subtitle1
-              ?.merge(const TextStyle(color: black_10)),
-        ),
-        categories_items(),
-        const SizedBox(
-          height: 16,
-        ),
-        Text(
-          'Popular Recipes',
-          style: Theme.of(context)
-              .textTheme
-              .subtitle1
-              ?.merge(const TextStyle(color: black_10)),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-        Expanded(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 237,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: items.length,
-                    separatorBuilder: (context, _) => const SizedBox(
-                      width: 20,
-                    ),
-                    itemBuilder: (context, index) => Container(
-                      height: 237,
-                      width: 190,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(items[index].image)),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: buildCard(
-                        content: items[index].content,
-                        image: items[index].image,
-                        time: items[index].time,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                SizedBox(
-                  height: 237,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: items.length,
-                    separatorBuilder: (context, _) => const SizedBox(
-                      width: 20,
-                    ),
-                    itemBuilder: (context, index) => Container(
-                      height: 237,
-                      width: 190,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(items[index].image)),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: buildCard(
-                        content: items[index].content,
-                        image: items[index].image,
-                        time: items[index].time,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
+      ),
     );
   }
 
-  Center categories_items() {
-    return Center(
+  Widget categories_items() {
+    return Padding(
+      padding: EdgeInsets.only(left: 16.w, right: 16.w),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SizedBox(
             height: 24,
-            width: 400,
+            width: 300,
             child: ListView.builder(
               itemCount: HomeScreen._categories.length,
               scrollDirection: Axis.horizontal,
@@ -252,7 +266,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   _selectedCategories = index;
                 }),
                 child: Container(
-                    height: 24,
+                    height: 24.h,
+                    width: 78.w,
                     margin: const EdgeInsets.only(right: 8),
                     decoration: BoxDecoration(
                       color: _selectedCategories == index
@@ -268,36 +283,29 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 3.0, horizontal: 18.0),
-                      child: Center(
-                          child: Text(
-                        HomeScreen._categories[index],
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.subtitle1?.merge(
-                            const TextStyle(fontSize: 9, color: black_10)),
-                      )),
-                    )),
+                    child: Center(
+                        child: Text(
+                      HomeScreen._categories[index],
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.subtitle1?.merge(
+                          const TextStyle(fontSize: 9, color: black_10)),
+                    ))),
               ),
             ),
-          ),
-          const SizedBox(
-            width: 12,
-          ),
-          Container(
-            height: 10,
-            width: 10,
-            decoration: const BoxDecoration(
-                color: Color(0xff212121), shape: BoxShape.circle),
-            child: InkWell(
-                child: Center(
-                    child: SvgPicture.asset('assets/icons/list_forward.svg'))),
           ),
         ],
       ),
     );
   }
+  // Container(
+  //   height: 10,
+  //   width: 10,
+  //   decoration: const BoxDecoration(
+  //       color: Color(0xff212121), shape: BoxShape.circle),
+  //   child: InkWell(
+  //     child: Assets.icons.listForward.svg(),
+  //   ),
+  // ),
 }
 
 class CardItem {
