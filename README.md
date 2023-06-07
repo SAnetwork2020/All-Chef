@@ -1,16 +1,11 @@
-# all_chef
+# All Chef
+All Chef is a Food Delivery App where Users can order for any food of their choice and have them delivered to their door step.
 
-A new Flutter project.
+The App starts with a Splash Screen with 5s delay which then automatically shows or display the Onboarding Screen.
+The Onboarding consists of Four Pages of which the user can skip to the Get Started Page.
+On the Get Started Page, there are two button with Sign In or Sign Up.
+The Sign Up button: This enables the user to create new account as a first timer  by navigating to the Sign Up page and
+The Sign In navigate the user to the Sign In page where the user can Sign as an existing user.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Home Screen
+![Screenshot 2023-06-07 121343](https://github.com/SAnetwork2020/Grazac-First-Challenge/assets/99102385/5ab30331-d3ee-445c-a6b3-da3437a72c40)
