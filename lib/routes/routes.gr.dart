@@ -33,6 +33,7 @@ import 'package:all_chef/screens/onboarding_screen/onboarding_screen.dart'
     as _i5;
 import 'package:all_chef/screens/splash_screen/splash_screen.dart' as _i6;
 import 'package:auto_route/auto_route.dart' as _i15;
+import 'package:flutter/material.dart' as _i16;
 
 abstract class $AppRouter extends _i15.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -112,9 +113,11 @@ abstract class $AppRouter extends _i15.RootStackRouter {
       );
     },
     SavedRoute.name: (routeData) {
+      final args = routeData.argsAs<SavedRouteArgs>(
+          orElse: () => const SavedRouteArgs());
       return _i15.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i13.SavedScreen(),
+        child: _i13.SavedScreen(key: args.key),
       );
     },
     ShopRoute.name: (routeData) {
@@ -296,16 +299,31 @@ class ProfileRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i13.SavedScreen]
-class SavedRoute extends _i15.PageRouteInfo<void> {
-  const SavedRoute({List<_i15.PageRouteInfo>? children})
-      : super(
+class SavedRoute extends _i15.PageRouteInfo<SavedRouteArgs> {
+  SavedRoute({
+    _i16.Key? key,
+    List<_i15.PageRouteInfo>? children,
+  }) : super(
           SavedRoute.name,
+          args: SavedRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'SavedRoute';
 
-  static const _i15.PageInfo<void> page = _i15.PageInfo<void>(name);
+  static const _i15.PageInfo<SavedRouteArgs> page =
+      _i15.PageInfo<SavedRouteArgs>(name);
+}
+
+class SavedRouteArgs {
+  const SavedRouteArgs({this.key});
+
+  final _i16.Key? key;
+
+  @override
+  String toString() {
+    return 'SavedRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for

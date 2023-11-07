@@ -33,6 +33,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/main_logo.svg
   SvgGenImage get mainLogo => const SvgGenImage('assets/icons/main_logo.svg');
 
+  /// File path: assets/icons/sign_out.svg
+  SvgGenImage get signOut => const SvgGenImage('assets/icons/sign_out.svg');
+
   /// File path: assets/icons/star.svg
   SvgGenImage get star => const SvgGenImage('assets/icons/star.svg');
 
@@ -72,9 +75,8 @@ class $AssetsIconsGen {
   /// File path: assets/icons/svg_home.svg
   SvgGenImage get svgHome => const SvgGenImage('assets/icons/svg_home.svg');
 
-  /// File path: assets/icons/svg_home_nona.svg
-  SvgGenImage get svgHomeNona =>
-      const SvgGenImage('assets/icons/svg_home_nona.svg');
+  /// File path: assets/icons/svg_home_a.svg
+  SvgGenImage get svgHomeA => const SvgGenImage('assets/icons/svg_home_a.svg');
 
   /// File path: assets/icons/svg_mail.svg
   SvgGenImage get svgMail => const SvgGenImage('assets/icons/svg_mail.svg');
@@ -128,6 +130,7 @@ class $AssetsIconsGen {
         eyeOpen,
         listForward,
         mainLogo,
+        signOut,
         star,
         svgApple,
         svgArticles,
@@ -140,7 +143,7 @@ class $AssetsIconsGen {
         svgGoogle,
         svgHelp,
         svgHome,
-        svgHomeNona,
+        svgHomeA,
         svgMail,
         svgMenuIcon,
         svgNewsletter,
@@ -226,6 +229,26 @@ class $AssetsImagesGen {
   /// File path: assets/images/saved.png
   AssetGenImage get saved => const AssetGenImage('assets/images/saved.png');
 
+  /// File path: assets/images/saved_food_1.png
+  AssetGenImage get savedFood1 =>
+      const AssetGenImage('assets/images/saved_food_1.png');
+
+  /// File path: assets/images/saved_food_2.png
+  AssetGenImage get savedFood2 =>
+      const AssetGenImage('assets/images/saved_food_2.png');
+
+  /// File path: assets/images/saved_food_3.png
+  AssetGenImage get savedFood3 =>
+      const AssetGenImage('assets/images/saved_food_3.png');
+
+  /// File path: assets/images/saved_food_4.png
+  AssetGenImage get savedFood4 =>
+      const AssetGenImage('assets/images/saved_food_4.png');
+
+  /// File path: assets/images/saved_food_5.png
+  AssetGenImage get savedFood5 =>
+      const AssetGenImage('assets/images/saved_food_5.png');
+
   /// File path: assets/images/splash_bg.png
   AssetGenImage get splashBg =>
       const AssetGenImage('assets/images/splash_bg.png');
@@ -259,6 +282,11 @@ class $AssetsImagesGen {
         pryLogo,
         rss,
         saved,
+        savedFood1,
+        savedFood2,
+        savedFood3,
+        savedFood4,
+        savedFood5,
         splashBg,
         verify,
         whiteLogo
